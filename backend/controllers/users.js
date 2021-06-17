@@ -34,7 +34,6 @@ const putUsers = async (req = request, res = response) => {
 	const { id } = req.params;
 	const { _id, password, ...resto } = req.body;
 
-
 	if (password) {
 		const hash = await bcrypt.hash(password, 10);
 		user.password = hash;
@@ -42,17 +41,14 @@ const putUsers = async (req = request, res = response) => {
 
 	const user = await User.findByIdAndUpdate(id, resto);
 
-	res.json({user});
+	res.json({ user });
 };
 
 const deleteUsers = async (req = request, res = response) => {
 	const { id } = req.params;
 
-	const userAuth = req.user
-	
-
 	const user = await User.findByIdAndUpdate(id, { state: false });
-	res.json({user, userAuth});
+	res.json(user);
 };
 
 module.exports = {

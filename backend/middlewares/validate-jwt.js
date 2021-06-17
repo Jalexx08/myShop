@@ -15,11 +15,11 @@ const validateJWT = async (req = request, res = response, next) => {
 		const user = await User.findById(id);
 
         if( !user ) return res.status(401).json({
-            msg: 'Tokeno is invalid user-no-DB'
+            msg: 'Token is invalid user-no-DB'
         });
 
         if( !user.state ) return res.status(401).json({
-            msg: 'Tokeno is invalid user-inactive'
+            msg: 'Token is invalid user-inactive'
         });
 
 		req.user = user;
