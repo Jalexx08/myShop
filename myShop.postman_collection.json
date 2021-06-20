@@ -1,0 +1,610 @@
+{
+	"info": {
+		"_postman_id": "ebfd1673-9d4c-43a3-a275-915c110355c3",
+		"name": "myShop",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"test1@correo.com\",\n    \"password\": \"123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}api/auth/login",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Crear usuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"test 3\",\n    \"email\": \"test3@correo.com\",\n    \"password\": \"123456\",\n    \"role\": \"PROVIDER\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}api/users",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar Usuario",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Alex\",\n    \"email\": \"alex@email.com.co\",\n    \"password\": \"654321\",\n    \"role\": \"SELL_ROLE\",\n    \"google\": true\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}api/users/60c56ed257b1384ca58dbe64",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"users",
+								"60c56ed257b1384ca58dbe64"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Usuarios - Paginación",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}api/users?from=0&limit=5",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "from",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Borrar Usuario",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwY2IzYWNjMmMxZWYzNDBkNDliZThjNSIsImlhdCI6MTYyMzkzMjc5MX0.ClAWbq3XUemj9R5tYVwr2eUyo3saWyoFGr2LlurxG0M",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MGM2MjFlN2VmYWQ0MzJiMjlkNmJiYzIiLCJpYXQiOjE2MjM3MjY5ODEsImV4cCI6MTYyMzc0MTM4MX0.MyvjCn88lZBY1JSNWtq0omCX_kBe5um0Zvkua0Aif0k",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}api/users/60cb3ae82c1ef340d49be8c6",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"users",
+								"60cb3ae82c1ef340d49be8c6"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Categories",
+			"item": [
+				{
+					"name": "Obtener categoría por id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}api/categories/60cc2c132452de8386b32222",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"categories",
+								"60cc2c132452de8386b32222"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener categorias",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}api/categories",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar categoria",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwY2IzYWNjMmMxZWYzNDBkNDliZThjNSIsImlhdCI6MTYyNDA3NTkxM30.uGIITP6hq23KATaRvvcKVURxqLQwhF3Huzx5cFuBRkc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"ropa\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}api/categories/60cc2c132452de8386b32222",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"categories",
+								"60cc2c132452de8386b32222"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear categoria",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwY2IzYWNjMmMxZWYzNDBkNDliZThjNSIsImlhdCI6MTYyMzk5MTE4NX0.JdpMvNyYjbfIJWKoYkcC59v-ecpwT_8QBGBo9hr8bSw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Ropa\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}api/categories",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Borrar categoria",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwY2IzYWNjMmMxZWYzNDBkNDliZThjNSIsImlhdCI6MTYyNDA3NjY3Mn0.S7Zg2lykrFOETAX7WRMNj-b8Y7mScIJOrUnkvM70eCk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}api/categories/60cc2c132452de8386b32222",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"categories",
+								"60cc2c132452de8386b32222"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Obtener producto por id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}api/products/60ce50648bee6b380602dc88",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"products",
+								"60ce50648bee6b380602dc88"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener productos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}api/products",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar producto",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwY2IzYWNjMmMxZWYzNDBkNDliZThjNSIsImlhdCI6MTYyNDEzNDEzMH0.kRXS5hIKxdSS4zazrTyWpIB4s4UzX6xPgSQwF6P47Gk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"xzx\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}api/products/60ce501f8bee6b380602dc87",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"products",
+								"60ce501f8bee6b380602dc87"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear producto",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwY2IzYWNjMmMxZWYzNDBkNDliZThjNSIsImlhdCI6MTYyMzk5MTE4NX0.JdpMvNyYjbfIJWKoYkcC59v-ecpwT_8QBGBo9hr8bSw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"camisas\",\n   \"category\":\"60cc2c132452de8386b3222\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}api/products",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Borrar producto",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwY2IzYWNjMmMxZWYzNDBkNDliZThjNSIsImlhdCI6MTYyNDEzNDEzMH0.kRXS5hIKxdSS4zazrTyWpIB4s4UzX6xPgSQwF6P47Gk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}api/products/60ce501f8bee6b380602dc87",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"products",
+								"60ce501f8bee6b380602dc87"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Sales",
+			"item": [
+				{
+					"name": "Obtener venta por id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwY2IzYWNjMmMxZWYzNDBkNDliZThjNSIsImlhdCI6MTYyNDE1MzcwOX0.fDQpGI9OVy1SSA8S-lylGltj01tZ5enYeL_yVaZ83qY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}api/sales/60ce9b263512876b2f4752fd",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"sales",
+								"60ce9b263512876b2f4752fd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener ventas",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwY2IzYWNjMmMxZWYzNDBkNDliZThjNSIsImlhdCI6MTYyNDE1MzcwOX0.fDQpGI9OVy1SSA8S-lylGltj01tZ5enYeL_yVaZ83qY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}api/sales",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"sales"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar venta",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwY2IzYWNjMmMxZWYzNDBkNDliZThjNSIsImlhdCI6MTYyNDEzNDEzMH0.kRXS5hIKxdSS4zazrTyWpIB4s4UzX6xPgSQwF6P47Gk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"amount\": 50,\n    \"total\": 500\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}api/sales/60ce9b263512876b2f4752fd",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"sales",
+								"60ce9b263512876b2f4752fd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear venta",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwY2IzYWNjMmMxZWYzNDBkNDliZThjNSIsImlhdCI6MTYyNDE1MzcwOX0.fDQpGI9OVy1SSA8S-lylGltj01tZ5enYeL_yVaZ83qY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"product\":\"60ce50648bee6b380602dc88\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}api/sales",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"sales"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Borrar venta",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwY2IzYWNjMmMxZWYzNDBkNDliZThjNSIsImlhdCI6MTYyNDEzNDEzMH0.kRXS5hIKxdSS4zazrTyWpIB4s4UzX6xPgSQwF6P47Gk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}api/sales/60ce9e89e882f76c7a61676f",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"sales",
+								"60ce9e89e882f76c7a61676f"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
