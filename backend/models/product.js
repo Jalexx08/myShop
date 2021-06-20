@@ -27,6 +27,7 @@ const ProductSchema = Schema({
 	},
 	description: { type: String },
 	available: { type: Boolean, default: true },
+	date: { type: Date, default: Date.now },
 });
 
 module.exports = model("Product", ProductSchema);

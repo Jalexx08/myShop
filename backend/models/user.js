@@ -26,7 +26,8 @@ const UserSchema = Schema({
 	state: {
 		type: Boolean,
 		default: true,
-	}
+	},
+	date: { type: Date, default: Date.now },
 });
 
 
